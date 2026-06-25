@@ -1,0 +1,180 @@
+{
+  "epics": [
+    {
+      "id": "E-01",
+      "title": "Envío de estimación desde el formulario",
+      "value": "La ejecutiva deja de salir del sistema para enviar la estimación: precarga sus datos automáticamente y confirma el envío con un PDF unificado desde una subficha integrada, eliminando llenado manual y flujo externo al sistema.",
+      "priority": 1,
+      "origin": [
+        "mvp:mvp-canvas.md#funcionalidades-minimas-1-2-3",
+        "req:R-01",
+        "req:R-04",
+        "req:R-05",
+        "personas:dolor-envio-manual-estimacion-cliente",
+        "personas:dolor-llenado-manual-datos-ejecutiva"
+      ]
+    },
+    {
+      "id": "E-02",
+      "title": "Ciclo de respuesta del cliente en línea",
+      "value": "El cliente acepta o rechaza desde un portal sin llamar a la ejecutiva; el sistema actualiza el estado y notifica automáticamente, eliminando el seguimiento manual post-envío que es el dolor central del MVP.",
+      "priority": 2,
+      "origin": [
+        "mvp:mvp-canvas.md#propuesta-de-valor",
+        "mvp:mvp-canvas.md#funcionalidades-minimas-4-5",
+        "req:R-06",
+        "req:R-07",
+        "req:R-08",
+        "personas:dolor-perdida-contacto-post-envio"
+      ]
+    },
+    {
+      "id": "E-03",
+      "title": "Visibilidad de resultados para el Gerente de ventas",
+      "value": "El Gerente recibe notificación automática del resultado (aceptación/rechazo) de cada estimación sin consultar a la ejecutiva, atendiendo el dolor de falta de seguimiento gerencial.",
+      "priority": 3,
+      "origin": [
+        "mvp:mvp-canvas.md#funcionalidades-minimas-6",
+        "req:R-09",
+        "personas:dolor-falta-seguimiento-gerencial",
+        "evidence-map:pain-falta-seguimiento-gerencial"
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "id": "US-01",
+      "epic": "E-01",
+      "as_a": "Ejecutiva de ventas",
+      "want": "que el sistemaprecargue automáticamente mi información de ejecutiva comercial, departamento y oficina al seleccionar el cliente",
+      "so_that": "no tengo que llenar esos campos manualmente en cada estimación",
+      "acceptance_criteria": [
+        "Dado que selecciono un cliente que tiene una ejecutiva comercial relacionada, cuando creo una nueva estimación, entonces los campos ejecutiva comercial, departamento y oficina se cargan automáticamente"
+      ],
+      "estimate": 2,
+      "dependencies": [],
+      "open_questions": [],
+      "priority": 1,
+      "origin": [
+        "us:US-01",
+        "req:R-01",
+        "personas:dolor-llenado-manual-datos-ejecutiva"
+      ]
+    },
+    {
+      "id": "US-02",
+      "epic": "E-01",
+      "as_a": "Ejecutiva de ventas",
+      "want": "una subficha de comunicación en el formulario de estimación donde pueda escribir un mensaje y adjuntar un Excel de bienes y un PDF opcional de estrategia de venta",
+      "so_that": "pueda enviar la estimación sin salir del sistema",
+      "acceptance_criteria": [
+        "Dado que tengo una estimación con artículos definidos, cuando abro la subficha de comunicación, marco 'enviar por correo', escribo un mensaje y adjunto los archivos, entonces puedo confirmar el envío desde el mismo formulario."
+      ],
+      "estimate": 5,
+      "dependencies": ["US-01"],
+      "open_questions": [],
+      "priority": 2,
+      "origin": [
+        "us:US-02",
+        "req:R-04",
+        "personas:dolor-envio-manual-estimacion-cliente"
+      ]
+    },
+    {
+      "id": "US-03",
+      "epic": "E-01",
+      "as_a": "Cliente",
+      "want": "recibir la estimación en un solo documento unificado (estrategia de venta, plantilla de estimación y detalle de bienes)",
+      "so_that": "pueda revisar la propuesta completa de un vistazo sin manejar varios archivos dispersos",
+      "acceptance_criteria": [
+        "Dado que la ejecutiva confirmó el envío de una estimación, cuando reviso mi correo, entonces encuentro un único PDF que incluye, en orden, la estrategia de venta (si fue cargada), la plantilla de la estimación y el detalle de bienes."
+      ],
+      "estimate": 5,
+      "dependencies": ["US-02"],
+      "open_questions": [],
+      "priority": 3,
+      "origin": [
+        "us:US-03",
+        "req:R-05",
+        "personas:stakeholder-cliente"
+      ]
+    },
+    {
+      "id": "US-04",
+      "epic": "E-02",
+      "as_a": "Cliente",
+      "want": "un enlace en el correo que me lleve a una página donde pueda revisar la estimación en línea y aceptarla o rechazarla",
+      "so_that": "pueda responder sin tener que llamar o escribir a la ejecutiva",
+      "acceptance_criteria": [
+        "Dado que recibí el correo con la estimación, cuando hago clic en el botón del correo, entonces accedo a una página del sistema donde veo el detalle de mi estimación y puedo elegir aceptar o rechazar."
+      ],
+      "estimate": 8,
+      "dependencies": ["US-03"],
+      "open_questions": [],
+      "priority": 4,
+      "origin": [
+        "us:US-04",
+        "req:R-06",
+        "personas:dolor-perdida-contacto-post-envio"
+      ]
+    },
+    {
+      "id": "US-05",
+      "epic": "E-02",
+      "as_a": "Ejecutiva de ventas",
+      "want": "que el sistema actualice automáticamente el estado de la estimación y me notifique cuando el cliente acepta",
+      "so_that": "no tenga que perseguirlo por teléfono para saber si sigue interesado",
+      "acceptance_criteria": [
+        "Dado que el cliente aceptó la estimación desde el portal en línea, cuando se registra esa aceptación, entonces el sistema cambia el estado a 'compra' con probabilidad 90%, envía un correo de confirmación al cliente y me notifica por correo."
+      ],
+      "estimate": 3,
+      "dependencies": ["US-04"],
+      "open_questions": [],
+      "priority": 5,
+      "origin": [
+        "us:US-05",
+        "req:R-07",
+        "personas:dolor-perdida-contacto-post-envio"
+      ]
+    },
+    {
+      "id": "US-06",
+      "epic": "E-02",
+      "as_a": "Ejecutiva de ventas",
+      "want": "que el sistema actualice el estado de la estimación y me notifique cuando el cliente rechaza",
+      "so_that": "pueda replantear mi estrategia con ese cliente a tiempo",
+      "acceptance_criteria": [
+        "Dado que el cliente rechazó la estimación desde el portal en línea, cuando se registra ese rechazo, entonces el sistema cambia el estado a 'perdida' con probabilidad 5%, envía un correo de confirmación al cliente y me notifica por correo."
+      ],
+      "estimate": 3,
+      "dependencies": ["US-04"],
+      "open_questions": [],
+      "priority": 6,
+      "origin": [
+        "us:US-06",
+        "req:R-08",
+        "personas:dolor-perdida-contacto-post-envio"
+      ]
+    },
+    {
+      "id": "US-07",
+      "epic": "E-03",
+      "as_a": "Gerente de ventas",
+      "want": "recibir un correo cuando el cliente acepta o rechaza una estimación",
+      "so_that": "tenga visibilidad del resultado de las ventas de mi equipo sin tener que preguntarles",
+      "acceptance_criteria": [
+        "Dado que el cliente respondió (aceptó o rechazó) una estimación desde el portal en línea, cuando se registra esa respuesta, entonces recibo un correo de notificación indicando el resultado y la ejecutiva involucrada."
+      ],
+      "estimate": 2,
+      "dependencies": ["US-05", "US-06"],
+      "open_questions": [],
+      "priority": 7,
+      "origin": [
+        "us:US-07",
+        "req:R-09",
+        "personas:dolor-falta-seguimiento-gerencial",
+        "evidence-map:pain-falta-seguimiento-gerencial"
+      ]
+    }
+  ]
+}

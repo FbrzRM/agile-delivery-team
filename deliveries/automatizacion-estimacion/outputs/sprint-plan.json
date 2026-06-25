@@ -1,0 +1,7 @@
+{
+  "sprint_goal": "La ejecutiva confirma el envío de una estimación desde la subficha de comunicación integrada en NetSuite, el cliente recibe un PDF con la propuesta completa y puede aceptarla o rechazarla desde un portal en línea — sin que nadie tenga que llamar a nadie.",
+  "capacity": 20,
+  "committed": 20,
+  "stories": ["US-01", "US-02", "US-03", "US-04"],
+  "deferred": ["US-05", "US-06", "US-07"]
+}

@@ -1,0 +1,36 @@
+{
+  "personas": [
+    {
+      "name": "E. (ejecutiva de ventas)",
+      "role": "ejecutiva de ventas",
+      "primary": true
+    }
+  ],
+  "pains": [
+    {
+      "id": "envio-manual-estimacion-cliente",
+      "source": "ejecutiva-ventas1.md",
+      "persona": "E. (ejecutiva de ventas)"
+    },
+    {
+      "id": "llenado-manual-datos-ejecutiva",
+      "source": "ejecutiva-ventas1.md",
+      "persona": "E. (ejecutiva de ventas)"
+    },
+    {
+      "id": "perdida-contacto-post-envio",
+      "source": "ejecutiva-ventas1.md",
+      "persona": "E. (ejecutiva de ventas)"
+    },
+    {
+      "id": "sin-vista-consolidada-bienes",
+      "source": "ejecutiva-ventas1.md",
+      "persona": "E. (ejecutiva de ventas)"
+    },
+    {
+      "id": "falta-seguimiento-gerencial",
+      "source": "ejecutiva-ventas3.md",
+      "persona": "Gerente de ventas"
+    }
+  ]
+}
