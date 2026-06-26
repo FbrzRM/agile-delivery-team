@@ -77,6 +77,14 @@ Para su revisión a mas detalle, revisar el archivo correspondiente `report.html
 
 ## ¿Qué cambió en tu plan cuando separaste el trabajo en cuatro roles en vez de pensarlo "todo junto"?
 
+Cuando se realizo el discovery agent, una sola persona piensa todo junto, entonces tiende a optimizar desde una perspectiva individual.
+Por ejemplo se mezcla el valor de negocio con las preferencias técnicas en una única decisión.
+En cambio cuando estaba realizando el agile delivery team se  separa el trabajo desde un inicio en 4 roles, entonces las prioridades pasan a ser un proceso de equipo, por lo que cada rol aporta un criterio distinto y obliga a justificar las decisiones que se toman antes de pasar al siguiente.
+
 ## ¿Qué historia te costó más dejar lista según INVEST, y por qué?
 
-# ¿Para qué te serviría un gate de Definition of Ready en tu equipo real?
+Según INVEST fue US-04 (el portal de aceptación/rechazo), porque concentra la mayor lógica del flujo y dependía de varias historias posteriores (US-05 · Actualización automática de estado y notificación al aceptar , US-06 · Actualización automática de estado y notificación al rechazar, US-07 · Notificación al Gerente de ventas). El mayor reto fue cumplir el criterio Small (S), ya que dividirla implicaba generar historias que no entregaban valor de forma independiente, asegurando que siguiera siendo independiente, estimable, testeable y con un valor claro para el usuario.
+
+## ¿Para qué te serviría un gate de Definition of Ready en tu equipo real?
+
+Me serviría para asegurar que una historia esté realmente lista antes de entrar al sprint, de esta manera los problemas se detecta antes de comenzar el desarrollo, reduciendo cambios durante el sprint y permitiendo que el equipo trabaje con mayor claridad y organización.
